@@ -17,12 +17,8 @@ public class NeoFlexProjectTask1 {
     
     public static Hashtable<String,Integer> searchWord(String text, String word, boolean ignorCase) {
         countWords = new Hashtable<String,Integer>();
-        String newText = text.replaceAll(" ", "_");
-        newText = newText.replaceAll("\\W", "");
-        String newWords = word.replaceAll(" ", "_");
-        newWords = newWords.replaceAll("\\W", "");
-        String[] wordsFromTheText = newText.split("_");
-        String[] wordsFromTheWord = newWords.split("_");
+        String[] wordsFromTheText = transformationInMassiv(text);
+        String[] wordsFromTheWord = transformationInMassiv(word);
         int count;
         for (String d : wordsFromTheWord) {
             count=0;
@@ -36,4 +32,9 @@ public class NeoFlexProjectTask1 {
         return countWords;
     }
     
+    public static String[] transformationInMassiv(String text) {
+        text = text.replaceAll(" ", "_");
+        text = text.replaceAll("\\W", "");
+        return text.split("_");
+    }
 }
