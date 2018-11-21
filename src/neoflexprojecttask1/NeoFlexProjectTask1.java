@@ -34,7 +34,13 @@ public class NeoFlexProjectTask1 {
     
     public static String[] transformationInMassiv(String text) {
         text = text.replaceAll(" ", "_");
-        text = text.replaceAll("\\W", "");
+        text = text.replaceAll("\\W", "_");
+        while (true) {            
+            if (text.indexOf("__")!=-1) {
+                text = text.replaceAll("__", "_");
+                continue;
+            } break;
+        }
         return text.split("_");
     }
 }
